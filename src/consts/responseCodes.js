@@ -1,0 +1,6 @@
+export const SUCCESS = '0000'; // "Unhandled exception"
+export const NO_RESULT = '0001'; // "No result found"
+export const SESSION_TIMEOUT = '0002'; // "This session has timed out. You must log in again."
+export const USER_NOT_LOGIN = '0010'; // "User not login."
+export const VALIDATION_ERROR = '9008'; // "validation error."
+export const UNKNOWN_ERROR = '9999'; // "Unknown error"
