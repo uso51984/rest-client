@@ -1,0 +1,6 @@
+export var SUCCESS = '0000'; // "Unhandled exception"
+export var NO_RESULT = '0001'; // "No result found"
+export var SESSION_TIMEOUT = '0002'; // "This session has timed out. You must log in again."
+export var USER_NOT_LOGIN = '0010'; // "User not login."
+export var VALIDATION_ERROR = '9008'; // "validation error."
+export var UNKNOWN_ERROR = '9999'; // "Unknown error"

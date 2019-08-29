@@ -1,7 +1,7 @@
 {
-  "name": "resizable-columns-table",
-  "version": "1.1.2",
-  "description": "javascript plugin to resize table columns",
+  "name": "@restful/client",
+  "version": "1.0.0",
+  "description": "Promise based axios client for the browser and node.js ",
   "main": "lib/index.js",
   "scripts": {
     "dist": "bee-tools run dist",
@@ -13,31 +13,26 @@
     "css": "bee-tools run css"
   },
   "config": {
-    "name": "createColResizable",
+    "name": "@restful/client",
     "entry": {
-      "resizable-columns-table": [
+      "@restful/client": [
         "./src/index.js"
       ]
     },
     "server": {
       "htmlTemplatePath": "./examples/index.html",
-      "port": 9200
+      "port": 7200
     }
   },
   "author": "chenjianbin",
   "repository": {
     "type": "git",
-    "url": "https://github.com/uso51984/resizable-columns-table"
+    "url": "https://github.com/uso51984/rest-client"
   },
   "license": "MIT",
   "keywords": [
     "javascirpt",
-    "resizable-columns-table",
-    "resizable-columns",
-    "html",
-    "table resize",
-    "resizable columns",
-    "resizable"
+    "rest-client"
   ],
   "devDependencies": {
     "bee-build-tools": "0.0.36",
