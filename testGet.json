@@ -1,0 +1,39 @@
+{
+  "headers": {
+    "response_code": "0000",
+    "response_message": "Successful",
+    "page_info": {
+      "order_by": "",
+      "total_records_per_page": 30,
+      "total_records": 0,
+      "page_number": 1,
+      "total_page": 1,
+      "order_option": "ASC"
+    }
+  },
+  "body": {
+    "program_userentry": {
+      "reno": 0,
+      "program_name": "Daily NOT Individual",
+      "logined_customer_id": "C5870E8C0E31AFF0DA",
+      "allow_individual_selection": null,
+      "reservation_unit": 2,
+      "sessions_message_code": 0,
+      "has_required_question": null,
+      "program_sessions": null,
+      "dc_enroll_dates": null,
+      "sessions_status": null,
+      "program_exceptionandextradates": null,
+      "selected_session_date_summary": null,
+      "questions": [],
+      "fee_summary": null,
+      "program_pickups": null,
+      "select_participant_id": null,
+      "participants": null,
+      "require_block_booking": false,
+      "selected_daily_date_summary": [],
+      "dc_session_dates": null,
+      "selected_monthly_date_summary": null
+    }
+  }
+}

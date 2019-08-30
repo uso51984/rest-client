@@ -2,7 +2,7 @@ import * as responseCodes from './consts/responseCodes';
 
 export default class RequestReponse {
   static isHttpError(status) {
-    return status < 200 || status >= 300;
+    return status < 200 || status >= 300 || !status;
   }
 
   static isSuccess(code) {
@@ -29,7 +29,8 @@ export default class RequestReponse {
   constructor(jsonResponse) {
     this.isHttpError = RequestReponse.isHttpError(jsonResponse.status);
     if (this.isHttpError) {
-      const { config, status, statusText } = jsonResponse;
+      const { config, status, statusText, message } = jsonResponse;
+      this.message = message;
       this.config = config;
       this.status = status;
       this.statusText = statusText;

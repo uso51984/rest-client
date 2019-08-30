@@ -51,6 +51,7 @@ export default function request(path, method, data, config = {}) {
 
       if (response.isHttpError) {
         const errorObj = new ErrorObj(ErrorType.HTTP, 'HTTP Error', {
+          message: response.message || '',
           code: status,
           url: path,
           response
@@ -61,6 +62,7 @@ export default function request(path, method, data, config = {}) {
 
       if (response.isSystemError) {
         const errorObj = new ErrorObj(ErrorType.SERVICE, 'Service Error', {
+          message: response.message || '',
           code: response.code,
           url: path,
           response
@@ -70,6 +72,7 @@ export default function request(path, method, data, config = {}) {
       }
 
       const errorObj = new ErrorObj(ErrorType.APP, 'Business Error', {
+        message: response.message || '',
         code: response.code,
         url: path,
         response
