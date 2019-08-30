@@ -42,10 +42,16 @@ export default function request(path, method, data, config = {}) {
         RequestReponse.success();
         return resData;
       }
+
       return Promise.reject(response);
     })
     .catch((result) => {
       loading.hide();
+      if (axios.isCancel(result)) {
+        const error = { result, title: 'Cancel Request' };
+        return Promise.reject(error);
+      }
+
       const response = new RequestReponse(result.response || result);
       const { status } = response;
 
