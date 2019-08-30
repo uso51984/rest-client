@@ -1,5 +1,5 @@
 {
-  "name": "@restful/client",
+  "name": "@rest/client",
   "version": "1.0.0",
   "description": "Promise based axios client for the browser and node.js ",
   "main": "lib/index.js",
