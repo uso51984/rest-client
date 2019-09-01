@@ -1,20 +1,19 @@
-import * as responseCodes from './consts/responseCodes';
 
 export default class RequestReponse {
   static isHttpError(status) {
     return status < 200 || status >= 300 || !status;
   }
 
-  static isSuccess(code) {
-    return code === responseCodes.SUCCESS;
+  static isSuccess() {
+    return true;
   }
 
-  static isSystemError(code) {
-    return code === responseCodes.UNKNOWN_ERROR;
+  static isSystemError() {
+    return false;
   }
 
-  static isValidationError(code) {
-    return code === 9008;
+  static isValidationError() {
+    return false;
   }
 
   static success() {}

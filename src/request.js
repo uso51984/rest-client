@@ -1,9 +1,10 @@
 import axios from 'axios';
 import loading from './loading';
-import ContentType from './consts/ContentTypeEnum';
+import ContentType from './consts/ContentType';
 import processHeaders from './processHeaders';
 import RequestReponse from './requestReponse';
 import { ErrorObj, ErrorType } from './error';
+import httpErrorMessage from './consts/httpErrorMessage';
 
 export default function request(path, method, data, config = {}) {
   let { headers = {} } = config;
@@ -48,7 +49,7 @@ export default function request(path, method, data, config = {}) {
     .catch((result) => {
       loading.hide();
       if (axios.isCancel(result)) {
-        const error = { result, title: 'Cancel Request' };
+        const error = { result, title: 'Cancel Request', code: 'canceled' };
         return Promise.reject(error);
       }
 
@@ -56,9 +57,10 @@ export default function request(path, method, data, config = {}) {
       const { status } = response;
 
       if (response.isHttpError) {
+        const code = status || 'failed';
         const errorObj = new ErrorObj(ErrorType.HTTP, 'HTTP Error', {
-          message: response.message || '',
-          code: status,
+          message: response.message || httpErrorMessage[status] || '',
+          code,
           url: path,
           response
         });
