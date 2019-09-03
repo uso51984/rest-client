@@ -1,52 +1,34 @@
 import React from 'react';
-// import { testGet, testGet1, testGet2, testPost, testPut, source } from './api';
-import { testGet, testGet1, testGet2, testPost, testPut, source } from './api';
+import ReactMarkdown from 'react-markdown';
+import Button from 'antd/lib/button';
+import CodeBlock from './doc/codeBlack';
+import input from './doc/normal.md';
+import { getUser } from './api';
+
+export const Markdown = ({ docData }) => <ReactMarkdown source={docData} escapeHtml={false} renderers={{ code: CodeBlock }} />;
 
 export default class Home extends React.PureComponent {
-  componentDidMount() {
-    userGet({ id: '23' });
-    // historyMethod.push('/about')
-    // testGet({ a: 'test' }).then((res) => {
-    //   console.log(res);
-    //   return res;
-    // }).catch((res) => {
-    //   console.log('res', res);
-    // });
+  constructor(props) {
+    super(props);
 
-    // testGet1({ a: 'test' }).then((res) => {
-    //   console.log(res);
-    //   return res;
-    // }).catch((res) => {
-    //   console.log('res', res);
-    // });
-    // setTimeout(() => {
-    //   source.cancel();
-    // });
+    this.state = {
+      normalSucess: ''
+    };
+  }
 
-    // testGet2({ a: 'test' }).then((res) => {
-    //   console.log(res);
-    //   return res;
-    // }).catch((res) => {
-    //   console.log('res', res);
-    // });
-
-
-    // testPost({ username: 'admin', password: '123456' }).then((res) => {
-    //   console.log(res);
-    // }).catch((res) => {
-    //   console.log(res);
-    // });
-
-
-    // testPut({ id: '3232' }, { name: 'yang', age: 23 }).then((res) => {
-    //   console.log(res);
-    // });
+  getUser=() => {
+    getUser().then((res) => {
+      this.setState({ normalSucess: res });
+    });
   }
 
   render() {
     return (
-      <div className="test">
-asdf
+      <div className="example">
+        <Markdown docData={input} />
+        <Button type="primary" onClick={this.getUser}>getUser</Button>
+        <h2>get result</h2>
+        <p>{this.state.normalSucess && JSON.stringify(this.state.normalSucess)}</p>
       </div>
     );
   }
