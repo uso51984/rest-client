@@ -38,10 +38,10 @@ export const classPut = createRequestAPI(httpMethod.PUT, '/class/{{typeId}}/user
 import { userGet, userDelete } from 'services/api';
 
 userGet({id: '23'}) // get request /user?id=23
-  .then((res)=>  console.log(rest))
+  .then((res)=>  console.log(res))
   .catch((error)=> console.log(error))
 userDelete({id: '23'}) // delete request /user?id=23
-  .then((res)=>  console.log(rest))
+  .then((res)=>  console.log(res))
   .catch((error)=> console.log(error))
 ```
 
@@ -50,10 +50,10 @@ userDelete({id: '23'}) // delete request /user?id=23
 import { userPost, userPut } from 'services/api';
 
 userPost({id: '23'}) // post request /user, params {id: '23'}
-  .then((res)=>  console.log(rest))
+  .then((res)=>  console.log(res))
   .catch((error)=> console.log(error))
 userPut({id: '23'}) // put request /user, params {id: '23'}
-  .then((res)=>  console.log(rest))
+  .then((res)=>  console.log(res))
   .catch((error)=> console.log(error))
 ```
 ##### 含模板url格式
@@ -62,10 +62,10 @@ userPut({id: '23'}) // put request /user, params {id: '23'}
 import { classGet, classGet } from 'services/api';
 
 classGet({typeId: 23}, {id: '2'}) // get request /class/23/use?id=2
-  .then((res)=>  console.log(rest))
+  .then((res)=>  console.log(res))
   .catch((error)=> console.log(error))
 classPut({typeId: 23, {id: '23'}}) // put request /class/23/use, params {id: '23'}
-  .then((res)=>  console.log(rest))
+  .then((res)=>  console.log(res))
   .catch((error)=> console.log(error))
 ```
 
@@ -90,15 +90,15 @@ loading.offLoading // true 关闭showLoading，hideLoading 回调， 默认值�
 import { requestReponse } from 'restful-request';
 
   requestReponse.isSuccess = (code) => {
-    // 定义success code
+    // 定义success code/ 默认返回 true
   }
 
-  requestReponse.isSystemError = () => {
-    // 定义SystemError code scope
+  requestReponse.isSystemError = (code) => {
+    // 定义SystemError code scope  默认返回 false
   }
 
-  requestReponse.isValidationError = () => {
-    // 定义 ValidationError code scope
+  requestReponse.isValidationError = (code) => {
+    // 定义 ValidationError code scope 默认返回 false
   }
 
   requestReponse.success = () => {
